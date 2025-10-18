@@ -1,4 +1,13 @@
-def Klicko():
+#Фунція Тахтай Н.В Ведення нового студента 
+def add(students, pib, group, course, grades):
+    students[pib] = {
+        "група": group,
+        "курс": course,
+        "оцінки": grades
+    }
+    print(f"Додано дані про студента: {pib}")
+
+def main():
     students = {
         "Левадний Яків Валентинович": {
             "група": "КН-42/1",
@@ -24,7 +33,22 @@ def Klicko():
 
     while True:
         print("0 - Вихід")
-if choice == "0":
+        print("1 - Ввести нового студента")
+        choice = input("Ведіть число: ")
+
+        if choice == "1":
+            pib = input("ПІБ: ")
+            group = input("Група: ")
+            course = int(input("Курс: "))
+            grades = {}
+            grades["Вища Математика"] = int(input("Оцінка з Вищої математики: "))
+            grades["Програмування"] = int(input("Оцінка з Програмування: "))
+            grades["Пайтон"] = int(input("Оцінка з Пайтону: "))
+
+            add(students, pib, group, course, grades)
+
+        elif choice == "0":
             print("Програму завершено.")
             break
-main ()
+
+main()
