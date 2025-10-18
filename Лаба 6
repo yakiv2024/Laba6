@@ -1,4 +1,11 @@
-#Фунція Тахтай Н.В Ведення нового студента 
+#Функціяя Тахтай Н.В Виведення словника
+def Print(students):
+    print("\nДані про успішність студентів:")
+    for pib, data in students.items():
+        print(f"{pib} ({data['група']}, {data['курс']} курс) — {data['оцінки']}")
+
+
+# Функція Тахтай Н.В. — Введення нового студента 
 def add(students, pib, group, course, grades):
     students[pib] = {
         "група": group,
@@ -6,6 +13,7 @@ def add(students, pib, group, course, grades):
         "оцінки": grades
     }
     print(f"Додано дані про студента: {pib}")
+
 
 def main():
     students = {
@@ -32,16 +40,21 @@ def main():
     }
 
     while True:
-        print("0 - Вихід")
-        print("1 - Ввести нового студента")
+        print("\n0 - Вихід")
+        print("1 - Вивести всіх студентів")
+        print("2 - Ввести нового студента")
+
         choice = input("Ведіть число: ")
 
         if choice == "1":
+            Print(students)
+
+        elif choice == "2":
             pib = input("ПІБ: ")
             group = input("Група: ")
             course = int(input("Курс: "))
             grades = {}
-            grades["Вища Математика"] = int(input("Оцінка з Вищої математики: "))
+            grades["Вища Математика"] = int(input("Оцінка з Вищої Математики: "))
             grades["Програмування"] = int(input("Оцінка з Програмування: "))
             grades["Пайтон"] = int(input("Оцінка з Пайтону: "))
 
@@ -51,4 +64,7 @@ def main():
             print("Програму завершено.")
             break
 
+
 main()
+
+
