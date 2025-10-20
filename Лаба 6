@@ -42,6 +42,26 @@ def max_sum(students):
     for s in max_students:
         print(f" - {s}")
 
+# Функція Нестеренка О.О.
+# Функція визначення студента(-ів), що має(-ють) найменшу суму оцінок
+def min_sum(students):
+    min_sum = None
+    min_student = []
+
+    for pib, data in students.items():
+        total = sum(data['оцінки'].values())
+
+        if min_sum is None or total < min_sum:
+            min_sum = total
+            min_student = [pib]
+
+        elif total == min_sum:
+            min_student.append(pib)
+
+    print(f"\nСтудент(и) з найменшою сумою оцінок ({min_sum}):")
+    for s in min_student:
+        print(f" - {s}")
+
 def main():
 # Словник Левадного Я.В
     students = {
