@@ -15,6 +15,32 @@ def add(students, pib, group, course, grades):
     }
     print(f"Додано дані про студента: {pib}")
 
+# Функція Орехова Івана
+# Функція видалення студента зі словника (видалення значення зі словника за його ключем)
+def delete(students):
+    pib=str(input("Введіть прізвище, ім'я, по батькові студента, інформацію про якого бажаєте видалити: "))
+    if pib in students:
+        del students[pib]
+        print(f"Студента {pib} успішно видалено!")
+    else:
+        print(f"Дані про {pib} відсутні")
+
+# Функція Орехова Івана
+# Функція визначення студента(-ів), що має(-ють) найбільшу суму оцінок
+def max_sum(students):
+    max_sum = 0
+    max_students = []
+    for pib, data in students.items():
+        total = sum(data['оцінки'].values())
+
+        if max_sum is None or total > max_sum:
+            max_sum = total
+            max_students = [pib]
+        elif total == max_sum:
+            max_students.append(pib)
+    print(f"\nСтудент(и) з найбільшою кількістю оцінок ({max_sum}):")
+    for s in max_students:
+        print(f" - {s}")
 
 def main():
 # Словник Левадного Я.В
@@ -45,6 +71,8 @@ def main():
         print("\n0 - Вихід")
         print("1 - Вивести всіх студентів")
         print("2 - Ввести нового студента")
+        print("3 - Видалити студента")
+        print("5 - Знайти та вивести дані про студента, що має найбільшу суму оцінок")
 
         choice = input("Ведіть число: ")
 
@@ -62,9 +90,16 @@ def main():
 
             add(students, pib, group, course, grades)
 
+        elif choice == "3":
+            delete(students)
+
+        elif choice == "5":
+            max_sum(students)
+
         elif choice == "0":
             print("Програму завершено.")
             break
+main()
 
 
 
