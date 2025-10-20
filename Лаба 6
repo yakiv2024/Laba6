@@ -5,7 +5,8 @@ def Print(students):
         print(f"{pib} ({data['група']}, {data['курс']} курс) — {data['оцінки']}")
 
 
-# Функція Тахтай Н.В. — Введення нового студента 
+# Функція Левадного Якова 
+# Функція додавання нового студента до словника
 def add(students, pib, group, course, grades):
     students[pib] = {
         "група": group,
@@ -16,6 +17,7 @@ def add(students, pib, group, course, grades):
 
 
 def main():
+# Словник Левадного Я.В
     students = {
         "Левадний Яків Валентинович": {
             "група": "КН-42/1",
