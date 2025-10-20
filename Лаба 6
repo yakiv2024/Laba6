@@ -63,6 +63,14 @@ def min_sum(students):
     for s in min_student:
         print(f" - {s}")
 
+# Функція Нестеренка О.О.
+# Функція сортування словника по прізвищу за алфавітним порядком
+def sort_students(students):
+    sorted_items = sorted(students.items(), key=lambda item: item[0].split()[0])
+    students.clear()
+    students.update(sorted_items)
+    print("\nСловник відсортовано по прізвищу за алфавітним порядком")
+
 def main():
 # Словник Левадного Я.В
     students = {
